@@ -1,0 +1,139 @@
+console.log("Laboratorul Nr.1");
+
+number = [];
+numberCopy = [];
+function getInputValue() {
+    input = document.getElementById("myInput").value.split('.');
+    for (i = 0; i < input.length; i++) {
+        if (input[i] <= 10)
+        number[i] = parseInt(input[i]);
+    }
+    console.log(number);
+
+    function renescenseNumber() {
+        for (var i = 0; i < number.length; i++)
+            numberCopy[i] = number[i];
+    } renescenseNumber();
+
+    function min(){
+        var min = number[0];
+            for (var i = 0; i < number.length; i++) {
+                if (number[i] <= min) {
+                    min = number[i];
+                }
+            }
+        console.log('Minimul este ---> ' + min);
+    } min();
+
+    function max(){
+        var max = number[0];
+        for (var i = 0; i < number.length; i++) {
+            if (number[i] >= max) {
+                max = number[i];
+            }
+        }
+        console.log('Maximul este ---> ' + max);
+    } max();
+
+    function media() {
+        var s = 0;
+        for (var i = 0; i < number.length; i++) {
+            s += number[i];
+        }
+        media = s / number.length;
+        console.log('Media aritmetica este ---> ' + media);
+    } media();
+
+    function formaCrescatoare() {
+        numberCopy.sort(function (a, b) {
+            return a - b
+        })
+        console.log('Tabel in forma crescatoare ---> ' + numberCopy);
+    } formaCrescatoare();
+
+    function formaDescrescatoare() {
+        numberCopy.sort(function (a, b) {
+            return b - a
+        })
+        console.log('Tabel in forma descrescatoare ---> ' + numberCopy);
+    } formaDescrescatoare();
+
+    renescenseNumber();
+    var arr = [];
+    arr[0] = numberCopy[numberCopy.length - 1];
+    for (var i = 0; i < numberCopy.length - 1; i++) {
+        arr[i + 1] = numberCopy[i];
+    } console.log('Rotirea tabelului la stanga ---> ' + arr);
+
+    renescenseNumber();
+    numberCopy.push(17);
+    console.log('Adaugarea numarului 17 ---> ' + numberCopy);
+    numberCopy.splice(2, 1);
+    console.log('?tergerea unui element ---> ' + numberCopy);
+
+    function note9_10() {
+        var nr = 0;
+        for (var i = 0; i <= number.length; i++){
+            if (number[i] >= 9){
+                nr+=1;
+            }
+        }
+        console.log('In total sunt --> ' + nr + ' note de 9 ?i 10');
+    } note9_10();
+
+    function procentulReusitei() {
+        var s = 0;
+        var nr = 0;
+        for (var i = 0; i <= number.length; i++){
+            if (number[i] >= 8){
+                nr++;
+            }
+            s = nr/number.length;
+        }
+        console.log('Procentul reu?itei ---> ' + s + '%');
+    } procentulReusitei();
+}
+
+function randoms() {
+    var randoms = [...Array(9)].map(() => Math.floor(Math.random() * 11));
+    console.log(randoms);
+}
+
+function randomToPlaceholder() {
+    input = randoms;
+}
+
+// ----------------------html----------------------------//
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>	</title>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+
+<body>
+    <label for="myInput">Note</label><br>
+    <input type="text" value="" id="myInput" onkeypress="isInputNumber(event);randomToPlaceholder();"><br>
+    <button type="button" onclick="getInputValue();">Set</button><br>
+    <button type="button" onclick="randoms();">Random</button>
+
+<script>
+    function isInputNumber(evt) {
+        var ch = String.fromCharCode(evt.which);
+        if (!/[0-9-.]/.test(ch)){
+            evt.preventDefault();
+        }
+    }
+</script>
+
+<div id="result"></div>
+
+
+<script src="lab1.js"></script>
+
+</body>
+</html>
