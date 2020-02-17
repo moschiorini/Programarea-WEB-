@@ -3,36 +3,72 @@ console.log("Laboratorul Nr.1");
 var numbers = [5, 8, 30, 4, 90, 10];
 var numbers1 = [5, 8, 30, 4, 90, 10];
 var numbers2 = [5, 8, 30, 4, 90, 10];
-var min = numbers[0];
-
+var min = numbers[0]; 
+var max = numbers[0];
+// Minimalinie element
+function minim(){
 for (var i = 0; i < numbers.length; i++){
     if (numbers[i] <= min) {
     	min = numbers[i];
     }
  }
- console.log('Minimul este ---> ' + min);
+ console.log('Minimum - ', min);
+}
 
-var max = numbers[0];
 
+minim(numbers);
+
+// minim cherez matematicheschie functii
+function minimum() {
+var mini = Math.min.apply(null, numbers);
+console.log("minimum cherez matem funchii-",mini);
+}
+
+//vizov matem minimuma
+minimum(numbers);
+
+
+function maximu(){
 for (var i = 0; i < numbers.length; i++){
     if (numbers[i] >= max) {
-    	max = numbers[i];
+      max = numbers[i];
     }
  }
- console.log('Maximul este ---> ' + max);
+ console.log('Maximum - ', max);
+}
 
- var mediaAritmetica = 0;
+//vizov functii maximum
+maximu(numbers);
+
+
+
+
+
+// maximum cherez matematicheschie functii
+function maximum() {
+var mini = Math.max.apply(null, numbers);
+console.log("maximum cherez matem funchii-",mini);
+}
+
+//vizov matem minimuma
+maximum(numbers);
+
+ 
+
+ var srednea = 0;
  var s = 0;
 
+function sred(){
 for (var i = 0; i < numbers.length; i++){
-    s += numbers[i];
+    s += numbers[i]; 
+srednea = s/numbers.length-1;
  }
- mediaAritmetica = s/numbers.length;
+console.log('Srednea arifmet ', srednea);
+}
 
-console.log('Media aritmetica este ---> ' + mediaAritmetica);
-document.getElementById("demo").innerHTML = numbers;  
+sred(numbers);
 
-console.log('Tabel de numere initial ---> ' + numbers);
+
 
 function myCres() {
   numbers.sort(function(a, b){return a - b});
