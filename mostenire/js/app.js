@@ -1,11 +1,14 @@
-console.log("Laboratorul Nr.1");
+console.log("Laborator N#1");
 
-var numbers = [5, 8, 30, 4, 90, 10];
-var numbers1 = [5, 8, 30, 4, 90, 10];
-var numbers2 = [5, 8, 30, 4, 90, 10];
+var numbers = [5, 8, 7, 4, 9, 10];
+var numbers1 = [5, 8, 7, 4, 9, 10];
+var numbers2 = [5, 8, 7, 4, 9, 10];
 var min = numbers[0]; 
 var max = numbers[0];
 // Minimalinie element
+
+console.log("Initial", numbers);
+
 function minim(){
 for (var i = 0; i < numbers.length; i++){
     if (numbers[i] <= min) {
@@ -35,6 +38,7 @@ for (var i = 0; i < numbers.length; i++){
     }
  }
  console.log('Maximum - ', max);
+
 }
 
 //vizov functii maximum
@@ -78,7 +82,7 @@ function myCres() {
 function des(){
 numbers.sort(function(a, b)
 	{return b - a })
-console.log('Tabel in forma descrecatoare ---> ' + numbers);
+console.log('Otsenki po ubivaniu ---> ' + numbers);
 }
 
 des(numbers);
@@ -86,7 +90,7 @@ des(numbers);
 function cres(){
 numbers.sort(function(a, b)
   {return a - b })
-console.log('Tabel in forma crecatoare ---> ' + numbers);
+console.log('Otsenki po vozrastaniu ---> ' + numbers);
 }
 
 cres(numbers);
@@ -96,7 +100,7 @@ function myDes() {
   document.getElementById("demo").innerHTML = numbers;  
 }
 
-function myMove(){
+function povo(){
 var arr = [];
 arr[0]=numbers1[numbers1.length-1];
 for (var i = 0; i < numbers1.length-1; i++){
@@ -105,12 +109,20 @@ for (var i = 0; i < numbers1.length-1; i++){
  console.log('Rotirea tabelului la stânga ---> ' + arr);
 }
 
-myMove(numbers1);
+povo(numbers1);
 
 
 numbers2.push(17);    
-console.log('Adaugarea numarului 17 ---> ' + numbers2);
+console.log('Dobavlennie 17: ' + numbers2);
 // functie pentru reinovarea tabelui
 
 numbers2.splice(2, 1);
-console.log('Stergerea unui element ---> ' + numbers2);
+console.log('Udalenit  ' + numbers2);
+
+
+ function isInputNumber(evt) {
+        var ch = String.fromCharCode(evt.which);
+        if (!/[0-9-,]/.test(ch)){
+            evt.preventDefault();
+        }
+    }  
